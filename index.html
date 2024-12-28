@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login dengan Nama</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Gaya untuk latar belakang */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            background-image: url('galeri/becgroun.gif'); /* Path gambar latar belakang */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        /* Gaya untuk animasi Vespa */
+        .animation-container {
+            position: absolute;
+            top: 10px; /* Geser sedikit dari atas */
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .animation-container img {
+            width: 150px; /* Ukuran gambar Vespa */
+            height: auto;
+        }
+
+        /* Gaya untuk kotak login */
+        .login-container {
+            background: rgba(100, 79, 223, 0.9); /* Transparansi latar belakang */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 1cmb rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 300px;
+        }
+
+        .login-container h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .login-container input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        .login-container button {
+            background-color: #4CAF50;
+            color: rgb(202, 216, 13);
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .login-container button:hover {
+            background-color: #3ab640;
+        }
+
+        .login-container p#message {
+            margin-top: 15px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        /* Gaya untuk animasi orang berjalan */
+        .walking-animation {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            text-align: center;
+            z-index: -1;
+        }
+
+        .walking-animation img {
+            width: 80px; /* Ukuran kecil untuk gambar */
+            height: auto;
+            animation: walk 5s linear infinite; /* Gerakan maju */
+        }
+
+        @keyframes walk {
+            0% {
+                transform: translateX(100vw); /* Mulai dari luar layar kanan */
+            }
+            100% {
+                transform: translateX(-100px); /* Berakhir di luar layar kiri */
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Animasi Vespa di bagian atas -->
+    <div class="animation-container">
+        <img src="galeri/vespa.png" alt="Animasi Vespa">
+    </div>
+
+    <!-- Kotak login -->
+    <div class="login-container">
+        <h2>Login</h2>
+        <input type="text" id="username" placeholder="Masukkan Nama Anda" required>
+        <button onclick="login()">Login</button>
+        <p id="message"></p>
+    </div>
+
+    <!-- Animasi orang berjalan di bagian bawah -->
+    <div class="walking-animation">
+        <img src="galeri/jalan.png" alt="Walking Animation">
+    </div>
+
+    <script>
+        function login() {
+            const username = document.getElementById('username').value;
+            const allowedNames = ["fani", "pipi"];
+            const messageElement = document.getElementById('message');
+
+            if (allowedNames.includes(username)) {
+                messageElement.textContent = `Selamat datang, ${username}!`;
+                messageElement.style.color = 'green';
+                setTimeout(() => {
+                    window.location.href = "benar.html"; // Redirect jika nama sesuai
+                }, 1000); // Redirect lebih cepat
+            } else {
+                messageElement.textContent = "Nama tidak dikenali!";
+                messageElement.style.color = 'red';
+                setTimeout(() => {
+                    window.location.href = "salah.html"; // Redirect jika nama tidak sesuai
+                }, 2000);
+            }
+        }
+    </script>
+</body>
+</html>

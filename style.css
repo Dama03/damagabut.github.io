@@ -1,0 +1,112 @@
+/* Gaya untuk latar belakang */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  background-image: url('galeri/becgroun.gif'); /* Path gambar latar belakang */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+   /* Agar gambar tidak bergerak saat scroll */
+}
+
+/* Gaya untuk animasi Vespa */
+.animation-container {
+  position: absolute;
+  top: 100px; /* Geser sedikit dari atas */
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.animation-container img {
+  width: 150px; /* Ukuran gambar Vespa */
+  height: auto;
+}
+
+/* Gaya untuk kotak login */
+.login-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+/* Gaya untuk kotak login */
+.login-container {
+  background: rgba(30, 139, 35, 0.9); /* Transparansi latar belakang */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 300px;
+  position: relative; /* Menjaga posisinya tetap */
+  z-index: 1;
+}
+
+.login-container h2 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.login-container input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #b7f709;
+  border-radius: 5px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.login-container button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.login-container button:hover {
+  background-color: #45a049;
+}
+
+.login-container p#message {
+  margin-top: 15px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* Gaya untuk animasi orang berjalan */
+.walking-animation {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  text-align: center;
+  z-index: -1; /* Agar animasi berada di belakang konten */
+}
+
+.walking-animation img {
+  width: 80px; /* Ukuran kecil untuk gambar */
+  height: auto;
+  animation: walk 5s linear infinite; /* Gerakan maju */
+}
+
+/* Animasi orang berjalan dari kanan ke kiri */
+@keyframes walk {
+  0% {
+      transform: translateX(100vw); /* Mulai dari luar layar kanan */
+  }
+  100% {
+      transform: translateX(-100px); /* Berakhir di luar layar kiri */
+  }
+}
